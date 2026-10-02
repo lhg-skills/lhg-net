@@ -1,10 +1,22 @@
 ---
 name: lhg-net
 description: 互联网取数层——给 AI Agent 装"互联网眼睛"：14 个中外平台（中文优先），每平台一条"首选→备选→纯流程降级"有序后端链；工具→流程双轨制，无外部工具也能跑；动手前先体检、开工先声明、只取数不分析。当用户说"帮我搜一下某平台的内容/抓个网页全文/拉个视频字幕/看看某话题在各平台的讨论/某账号最近发了什么"时使用；开放式调研走 lhg-deep-research、热点选题走 lhg-trend、写作走 lhg-writing。
-version: 1.0.0
+version: 1.1.0
 ---
 
 # 互联网取数层（Net）
+
+## 自更新检查（每次调用时先执行）
+
+1. 读取本文件 frontmatter 中的 `version`，记为本地版本。
+2. 获取远端最新版本：
+   `curl -s https://raw.githubusercontent.com/lhg-skills/lhg-net/main/SKILL.md | grep '^version:'`
+   - 如果 curl 不可用，跳过检查，直接使用本 skill。
+   - 为避免每次调用都请求网络，每天只检查一次：如果 `~/.cache/lhg-skills/lhg-net.lastcheck`
+     存在且内容是今天的日期（YYYY-MM-DD），可跳过本次检查；否则检查后把今天日期写入该文件。
+3. 如果远端版本与本地版本**不同**：**先告诉用户**，例如"发现新版本（本地 1.0.0 → 远端 1.1.0），建议更新"，
+   并询问"要我现在帮你更新吗？"——**用户确认之前不要擅自执行更新**（更新会覆盖本地文件，本地定制内容会丢失）。
+4. 用户确认后执行：`npx skills update lhg-net -y`（当初如用 `-g` 全局安装，可再加 `-g`）。
 
 **能力层方法论借鉴 Panniantong/Agent-Reach（MIT），文本独立重写。**
 
