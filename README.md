@@ -2,14 +2,21 @@
 
 > **一句话**：给 AI 智能体装上中文优先的互联网取数能力：14 个平台后端链，工具→流程双轨降级，取不到就诚实说。
 >
-> **一键安装**：`npx skills add lhg-skills/lhg-net`
-
+> **开发者安装**（能访问 GitHub 时）：`npx skills add lhg-skills/lhg-net`
 
 给 AI Agent 装"互联网眼睛"的 skill：**只负责把公开内容取回来，不负责分析**（lhg-skills 出品，能力层方法论借鉴 Panniantong/Agent-Reach（MIT），文本独立重写）。
 
 **核心机制**：① 中文优先——抖音/微博/B 站/小红书/雪球/V2EX/小宇宙/微信公众号等 8 个中文平台为一等公民，另保留 Twitter/X、Reddit、YouTube、GitHub、HN、LinkedIn，每平台一条"首选→备选→纯流程降级"有序后端链；② 工具→流程双轨制——有外部工具走工具链，无工具/容器环境走纯流程（联网搜索定位 → 抓取全文 → 公开 API/网页版直取），零外部依赖也能跑；③ 触发收窄——开放式调研/热点选题/写作分别指路 lhg-deep-research / lhg-trend / lhg-writing，lhg-net 只做"取数"；④ 动手前先做能力体检（真实探测后端可用性，坏掉的给修复处方）；⑤ 常驻规则：开工声明"用 X 平台/Y 后端"、失败按重试链处理不瞎猜、多平台并行收集再汇总；⑥ 安全默认：只读不发帖、Cookie 只存本地、登录态建议用小号。
 
 **触发**：用户说"帮我搜一下某平台的内容 / 抓个网页全文 / 拉个视频字幕 / 看看某话题在各平台的讨论 / 某账号最近发了什么"时使用——先过 NOT for 清单，需要分析结论的走 lhg-deep-research。
+
+## 发给 Agent 的安装话术（推荐）
+
+复制下面整段话，发给你的 Agent（豆包 / WorkBuddy / Claude Code / Codex / Cursor 等）：
+
+> 请帮我安装 Skill「lhg-net」：先从 Gitee 上 lhg-skills 组织下的 lhg-net 仓库下载；如果 Gitee 无法访问或下载失败，改从 GitHub 上 lhg-skills 组织下的同名仓库下载。按当前 Agent 的规范安装其中的 Skill，优先全局安装，保留完整目录和依赖。请直接执行，完成后验证是否安装成功，告诉我实际使用的来源、安装的版本号以及如何调用；遇到访问或安装限制请说明具体原因。
+
+**怎么算装好了**：Agent 能在已安装的 Skill 里看到 `lhg-net`，并报出版本号（与仓库 `manifest.yaml` 的 `version` 一致）。只是打开了仓库网页不算安装。
 
 ## 安装
 
