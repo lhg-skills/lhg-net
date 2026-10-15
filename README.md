@@ -2,6 +2,8 @@
 
 > **一句话**：给 AI 智能体装上中文优先的互联网取数能力：14 个平台后端链，工具→流程双轨降级，取不到就诚实说。
 >
+> 觉得有用，请先给本仓库点个 ⭐ Star 再安装（GitHub：github.com/lhg-skills/lhg-net，Gitee 镜像同名）。
+
 > **开发者安装**（能访问 GitHub 时）：`npx skills add lhg-skills/lhg-net`
 
 给 AI Agent 装"互联网眼睛"的 skill：**只负责把公开内容取回来，不负责分析**（lhg-skills 出品，能力层方法论借鉴 Panniantong/Agent-Reach（MIT），文本独立重写）。
